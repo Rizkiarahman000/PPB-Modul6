@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Modal, StyleSheet, Text, View } from "react-native";
 import Animated, {
   Easing,
   FadeInDown,
@@ -73,42 +73,58 @@ export function SplashScreen({ onFinish }) {
   }));
 
   return (
-    <Animated.View
-      style={[styles.root, overlayStyle]}
-      accessible
-      accessibilityLabel="LiveTemp sedang dimuat"
+    <Modal
+      visible
+      transparent
+      animationType="none"
+      statusBarTranslucent
+      navigationBarTranslucent
+      onRequestClose={() => {}}
     >
-      <View style={styles.center}>
-        <View style={styles.badgeStage}>
-          <Animated.View style={[styles.ring, ringStyle]} />
-          <Animated.View style={[styles.ring, ringLateStyle]} />
-          <Animated.View entering={FadeInDown.duration(420)} style={styles.logo}>
-            <Ionicons name="thermometer" size={40} color={color.onPrimary} />
-          </Animated.View>
+      <Animated.View
+        style={[styles.root, overlayStyle]}
+        accessible
+        accessibilityLabel="LiveTemp sedang dimuat"
+      >
+        <View style={styles.center}>
+          <View style={styles.badgeStage}>
+            <Animated.View style={[styles.ring, ringStyle]} />
+            <Animated.View style={[styles.ring, ringLateStyle]} />
+            <Animated.View
+              entering={FadeInDown.duration(420)}
+              style={styles.logo}
+            >
+              <Ionicons name="thermometer" size={40} color={color.onPrimary} />
+            </Animated.View>
+          </View>
+
+          <Animated.Text
+            entering={FadeInDown.delay(80).duration(420)}
+            style={styles.title}
+          >
+            LiveTemp
+          </Animated.Text>
+          <Animated.Text
+            entering={FadeInDown.delay(150).duration(420)}
+            style={styles.subtitle}
+          >
+            Real-time temperature monitor
+          </Animated.Text>
+
+          <View style={styles.track}>
+            <Animated.View style={[styles.trackFill, progressStyle]} />
+          </View>
         </View>
 
-        <Animated.Text entering={FadeInDown.delay(80).duration(420)} style={styles.title}>
-          LiveTemp
-        </Animated.Text>
-        <Animated.Text entering={FadeInDown.delay(150).duration(420)} style={styles.subtitle}>
-          Real-time temperature monitor
-        </Animated.Text>
-
-        <View style={styles.track}>
-          <Animated.View style={[styles.trackFill, progressStyle]} />
-        </View>
-      </View>
-
-      <Text style={styles.footer}>Kelompok 21 · PPB Modul 6</Text>
-    </Animated.View>
+        <Text style={styles.footer}>Kelompok 21 · PPB Modul 6</Text>
+      </Animated.View>
+    </Modal>
   );
 }
 
 const styles = StyleSheet.create({
   root: {
-    ...StyleSheet.absoluteFillObject,
-    zIndex: 10,
-    elevation: 10,
+    flex: 1,
     backgroundColor: color.text,
     alignItems: "center",
     justifyContent: "center",

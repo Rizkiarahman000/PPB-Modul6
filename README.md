@@ -9,7 +9,7 @@ Aplikasi monitoring suhu real-time berbasis React Native + Expo untuk Praktikum 
 - **Control** — atur batas suhu (threshold) beserta catatan, lengkap dengan validasi dan riwayat threshold.
 - **Profil** — informasi kelompok, anggota beserta NIM, topik MQTT, dan versi aplikasi.
 - **Splash screen kustom** — tampil saat aplikasi dibuka, dengan animasi pulse dan progress bar.
-- **Animasi orb** — sphere temperature dibuat dari band lintang yang berputar, beriak, dan punya aura mengikuti status suhu.
+- **Animasi orb** — sphere temperature dengan shading gradien, highlight, dan gelombang sonar (ripple) yang memancar keluar; bereaksi tiap ada suhu baru.
 - Panduan singkat (guide overlay), pull-to-refresh, dan animasi transisi antar kartu.
 
 ## Struktur

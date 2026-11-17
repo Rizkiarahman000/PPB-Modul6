@@ -91,7 +91,7 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <View style={{ flex: 1, backgroundColor: color.bg }}>
+      <View style={{ flex: 1, backgroundColor: booted ? color.bg : color.text }}>
         <StatusBar style={booted ? "dark" : "light"} />
         <NavigationContainer theme={theme}>
           <MainTabs />
